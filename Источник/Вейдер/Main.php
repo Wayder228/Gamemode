@@ -1,6 +1,8 @@
 <?php
-//* Мой первый плагин ByWayder
-*//
+
+/*
+ ddddd
+*/
 
 namespace Wayder;
 
@@ -11,23 +13,24 @@ use pocketmine\player\Player;
 
 class Main extends PluginBase
 {
-    function onCommand(CommandSender $p, Command $c, string $label, array $args) : bool{
-        switch($c->getName())
-        {
-            case "gm":
-                if($p->hasPermission("gm.use"))
-                {
-                    if($p->isSurival)
-                    {
-                        $p->setGamemode(GameMode::CREATIVE());
-                        $p->sendMessage("Вы включили гм 1");
-                    } else {
-                        $p->setGamemode(GameMode::SURIVAL);
-                        $p->sendMessage("Вы выключили гм 1");
-                    }
-                } else {
-                    $p->sendPopup("У вас нету прав!");
-                }
-        }
-    }
+	public function onCommand(CommandSender $p, Command $c, string $l, array $args) : bool {
+		
+		if($c->getName == "gm")
+		{
+			switch($args[0]->getName())
+			{
+				case "1":
+				$p->setGameMode(GameMode::CREATIVE());
+				$p->sendPopup("\n qq ");
+				
+				break;
+				
+				case "0":
+					
+					$p->setGameMode(GameMode::SURVIVAL());
+					$p->sendMessage("че");
+			}
+		}
+		
+	}
 }
